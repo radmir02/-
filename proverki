@@ -14,15 +14,15 @@ System.out.print(a[i][j]+" ");
 
                     if(a[i][j].equals("o") && a[i][j + 1].equals("o") && a[i][j + 2].equals("o"))
                     {
-                        System.out.println("крестики выйграли");break;
-                    }
+                        System.out.println("нолики выйграли");break;
+                  }
                     if(a[i][j].equals("o") && a[i + 1][j].equals("o") && a[i + 2][j].equals("o"))
                     {
-                        System.out.println("крестики выйграли");break;
+                        System.out.println("нолики выйграли");break;
                     }
                     if(a[i][j].equals("o") && a[i + 1][j + 1].equals("o") && a[i + 2][j + 2].equals("o"))
                     {
-                        System.out.println("крестики выйграли");break;
+                        System.out.println("нолики выйграли");break;
                     }
                     if(!a[i][j].equals("1") && !a[i + 1][j].equals("2") && !a[i + 2][j].equals("3") && !a[i][j + 1].equals("4") && !a[i + 1][j + 1].equals("5") && !a[i + 2][j + 1].equals("6") && !a[i][j + 2].equals("7") && !a[i + 1][j + 2].equals("8") && !a[i + 2][j + 2].equals("9"))
                     {
