@@ -30,7 +30,7 @@ public class Main {
             {
                 for (int j=0;j<3;j++)
                 {
-                    if(mx.equals(mx==a[i][j]))
+                    if(mx.equals(a[i][j]))
                     {
                         a[i][j]="x";
                     }
@@ -43,7 +43,7 @@ public class Main {
             {
                 for (int j=0;j<3;j++)
                 {
-                    if(my.equals(my==a[i][j]))
+                    if(my.equals(a[i][j]))
                     {
                         a[i][j]="o";
                     }
