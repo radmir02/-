@@ -8,50 +8,64 @@ int main()
     ifstream cin("input.txt");
     ofstream cout("output.txt");
     int n,m,k;
+    cin>>n>>m>>k;
     int a[n][m];
+    int b[n][m];
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<m;j++)
         {
-            a[i][j]=rand()%2;
-            cout<<a[i][j]<<" ";
+
+        cin>>a[i][j];
         }
-        cout<<endl;
+
+    }
+     for(int k=0;k<n;k++)
+    {
+        for(int f=0;f<m;f++)
+        {
+
+        b[k][f]=0;
+        }
+
     }
     for(int b=0;b<k;b++)
     {
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<m;j++)
+         {
+        for(int k=0;k<n;k++)
         {
-            if(a[i][j]==0)
+            for(int f=0;f<m;f++)
+        {
+            int s=a[i][j]+a[i][(j+1)%n]+a[i][(j+2)%n]+a[(i+1)%n][(j+1)%n]+a[(i+1)%n][(j+2)%n]+a[(i+1)%n][(j)%n]+a[(i+2)%n][(j)%n]+a[(i+2)%n][(j+1)%n]+a[(i+2)%n][(j+2)%n];
+            int in=a[(i+1)%n][(j+1)%n];
+            int in2=b[(k+1)%n][(f+1)%n]
+            if(in==0)
             {
-             if(a[i][j%n]+a[i%n][j]+a[i][(j+2)%n]+a[(i+2)%n][j]==3)
+             if(s==3)
              {
-                 a[i][j]=0;
+                 in2=0;
              }
             }
-            if(a[i][j]==1)
-            {
-                if(a[i][j%n]+a[i%n][j]+a[i][(j+2)%n]+a[(i+2)%n][j]<2)
+            if(in==1)
+            {s-=in;
+                if(s<2||s<3)
                 {
-                    a[i][j]=0;
+                   in2=0;
                 }
-                if(a[i][j%n]+a[i%n][j]+a[i][(j+2)%n]+a[(i+2)%n][j]>3)
+
+                if(s==2||s==3)
                 {
-                    a[i][j]=0;
+                    in2=1;
                 }
-                if(a[i][j%n]+a[i%n][j]+a[i][(j+2)%n]+a[(i+2)%n][j]==2)
-                {
-                    a[i][j]=1;
-                }
-                if(a[i][j%n]+a[i%n][j]+a[i][(j+2)%n]+a[(i+2)%n][j]==2)
-                {
-                    a[i][j]=1;
-                }
+
             }
+            cout<<b[k][f]<<" ";
         }
+        cout<<endl;
     }
-    }
+    }}}
     return 0;
 }
