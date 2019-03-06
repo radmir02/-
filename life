@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib>
 #include <fstream>
 using namespace std;
 
@@ -11,61 +10,81 @@ int main()
     cin>>n>>m>>k;
     int a[n][m];
     int b[n][m];
+    char c[n][m];
+    char h[n][m];
     for(int i=0;i<n;i++)
-    {
+      {
         for(int j=0;j<m;j++)
+      {
+        cin>>c[i][j];
+        if(c[i][j]=='.')
         {
-
-        cin>>a[i][j];
+           a[i][j]=0;
         }
-
-    }
-     for(int k=0;k<n;k++)
-    {
-        for(int f=0;f<m;f++)
+        if(c[i][j]=='*')
         {
-
-        b[k][f]=0;
+           a[i][j]=1;
         }
+        b[i][j]=0;
+      }
+       }
 
-    }
-    for(int b=0;b<k;b++)
+    for(int l=0;l<k;l++)
     {
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<m;j++)
          {
-        for(int k=0;k<n;k++)
-        {
-            for(int f=0;f<m;f++)
-        {
             int s=a[i][j]+a[i][(j+1)%n]+a[i][(j+2)%n]+a[(i+1)%n][(j+1)%n]+a[(i+1)%n][(j+2)%n]+a[(i+1)%n][(j)%n]+a[(i+2)%n][(j)%n]+a[(i+2)%n][(j+1)%n]+a[(i+2)%n][(j+2)%n];
             int in=a[(i+1)%n][(j+1)%n];
-            int in2=b[(k+1)%n][(f+1)%n]
+            //int in2=b[(i+1)%n][(j+1)%n];
             if(in==0)
             {
              if(s==3)
              {
-                 in2=0;
+                 b[(i+1)%n][(j+1)%n]=1;
              }
             }
             if(in==1)
             {s-=in;
                 if(s<2||s<3)
                 {
-                   in2=0;
+                   b[(i+1)%n][(j+1)%n]=0;
                 }
 
                 if(s==2||s==3)
                 {
-                    in2=1;
+                    b[(i+1)%n][(j+1)%n]=1;
                 }
 
             }
-            cout<<b[k][f]<<" ";
         }
-        cout<<endl;
     }
-    }}}
+    }
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(b[i][j]==0)
+            {
+                h[i][j]='.';
+            }
+            if(b[i][j]==1)
+            {
+                h[i][j]='*';
+            }
+
+        }
+
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cout<<h[i][j]<<" ";
+        }
+       cout<<endl;
+    }
     return 0;
 }
